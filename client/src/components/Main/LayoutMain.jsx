@@ -7,7 +7,7 @@ import Bubble from "./Bubble.jsx";
 
 const LayoutMain = () => {
     return (
-        <div className="relative w-full h-screen">
+        <div className="relative w-screen h-screen">
             <HeaderMain/>
             <Canvas style={{background: '#f5efd9'}} shadows camera={{position: [5, 5, 5], fov: 50, far: 50000}}>
                 <ScrollControls pages={10} damping={0.2}>

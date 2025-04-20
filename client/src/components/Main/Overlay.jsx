@@ -1,20 +1,47 @@
 import React from 'react';
-import { Scroll } from "@react-three/drei";
+import {Scroll} from "@react-three/drei";
 
 const Overlay = () => {
     return (
         <Scroll html>
             <div className="absolute inset-0 w-screen pointer-events-none">
 
-                <section className="h-screen flex flex-col justify-center items-center border border-white">
-                    <h2 className="text-[10vw] text-white font-extrabold absolute">Vincenzo 39 WA</h2>
-                    <div className="p-4">
-                        <video width="100%" height="auto" controls autoPlay loop muted>
-                            <source src="/img/videoYacht.mp4" type="video/mp4" />
+                <section className="relative h-screen w-screen overflow-hidden">
+                    {/* Центрированный заголовок поверх видео */}
+                    <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+                        <h2 className="text-[10vw] text-white font-extrabold text-center">
+                            Vincenzo 39 WA
+                        </h2>
+                    </div>
+
+                    {/* Видео-блок */}
+                    <div className="absolute inset-0 z-0">
+                        {/* Десктоп-видео */}
+                        <video
+                            className="hidden md:block w-full h-full object-cover"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        >
+                            <source src="/assets/videos/videoYacht.mp4" type="video/mp4" />
+                            Ваш браузер не поддерживает видео.
+                        </video>
+
+                        {/* Мобильное видео */}
+                        <video
+                            className="md:hidden w-full h-full object-cover"
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                        >
+                            <source src="/assets/videos/videoYachtMin.mp4" type="video/mp4" />
                             Ваш браузер не поддерживает видео.
                         </video>
                     </div>
                 </section>
+
 
                 <section className="h-screen flex flex-col justify-center items-center border border-white">
                     <h2 className="text-[10vw] text-white font-extrabold">HELLO22</h2>
