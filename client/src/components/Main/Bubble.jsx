@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react';
 import {Environment, Html, useProgress} from "@react-three/drei";
-import One from "./One.jsx";
+import Two from "./Two.jsx";
 
 const Bubble = () => {
 
@@ -12,10 +12,9 @@ const Bubble = () => {
     return (
         <Suspense fallback={<Loader/>}>
             <Environment
-                preset="apartment"
-                environmentIntensity={1}
+                files="./img/HDRI_sea.hdr" // Путь к HDRI
             />
-            <One/>
+            <Two/>
         </Suspense>
     );
 };
