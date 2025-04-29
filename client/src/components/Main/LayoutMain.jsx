@@ -9,7 +9,7 @@ const LayoutMain = () => {
     return (
         <div className="relative w-screen h-screen">
             <HeaderMain/>
-            <Canvas style={{background: '#DFEFFF'}} shadows camera={{position: [5, 5, 5], fov: 50, far: 50000}}>
+            <Canvas style={{background: '#DFEFFF'}} shadows camera={{position: [0, 0, 0], fov: 50, far: 50000}}>
                 <ScrollControls pages={10} damping={0.2}>
                     <Overlay/>
                     <Bubble/>
