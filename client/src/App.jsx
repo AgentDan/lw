@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 import Layout from "./components/Admin/Layout.jsx";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import Users from "./pages/Admin/Users.jsx";

@@ -74,6 +74,8 @@ const Construc = () => {
         setArr([])
         setProjectCurrent(file)
     }
+    console.log("Arr : ", arr)
+    console.log("ProjectCurrent : ", projectCurrent)
 
     return (
         <div>

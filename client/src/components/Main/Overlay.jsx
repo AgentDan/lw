@@ -42,7 +42,6 @@ const Overlay = () => {
                     </div>
                 </section>
 
-
                 <section className="h-screen flex flex-col justify-center items-center border border-white">
                     <h2 className="text-[10vw] text-white font-extrabold">HELLO22</h2>
                 </section>
@@ -97,7 +96,6 @@ const Overlay = () => {
                     </a>
                 </section>
 
-
                 <section className="h-screen flex flex-col justify-center items-center border border-white">
                     <h2 className="text-[10vw] text-white font-extrabold">Component 7</h2>
                     <a
@@ -117,7 +115,6 @@ const Overlay = () => {
                         Constructor
                     </a>
                 </section>
-
 
                 <section className="relative h-screen w-screen overflow-hidden">
                     {/* Центрированный заголовок поверх видео */}
@@ -154,8 +151,6 @@ const Overlay = () => {
                         </video>
                     </div>
                 </section>
-
-
 
             </div>
         </Scroll>
