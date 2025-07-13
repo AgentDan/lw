@@ -75,7 +75,6 @@ const Construc = () => {
         setProjectCurrent(file)
     }
 
-    console.log("HELLO")
     console.log("ProjectCurrent : ", projectCurrent)
 
     return (
