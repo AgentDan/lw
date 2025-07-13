@@ -76,7 +76,6 @@ const Construc = () => {
     }
 
     console.log("HELLO")
-    console.log("Arr : ", arr)
     console.log("ProjectCurrent : ", projectCurrent)
 
     return (
