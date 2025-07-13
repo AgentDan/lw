@@ -74,6 +74,8 @@ const Construc = () => {
         setArr([])
         setProjectCurrent(file)
     }
+
+    //My control errors
     console.log("Arr : ", arr)
     console.log("ProjectCurrent : ", projectCurrent)
 
