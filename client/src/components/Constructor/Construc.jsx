@@ -75,7 +75,7 @@ const Construc = () => {
         setProjectCurrent(file)
     }
 
-    //My control errors
+    console.log("HELLO")
     console.log("Arr : ", arr)
     console.log("ProjectCurrent : ", projectCurrent)
 
