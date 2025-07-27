@@ -4,8 +4,10 @@ import Buttons from "./Buttons/Buttons.jsx";
 import {Float, OrbitControls, Stage, useGLTF} from "@react-three/drei";
 
 const Zaglushka = ({openelements, setOpenelements, arr, setArr}) => {
-    const {nodes, materials} = useGLTF(`./uploads/bebrik.glb`);
-    console.log(nodes)
+
+    const baseUrl = import.meta.env.VITE_BASE_URL
+    const modelPath = `${baseUrl}/uploads/bebrik.glb`;
+    const {nodes, materials} = useGLTF(modelPath);
 
     return (
         <div className="h-screen bg-amber-300">
