@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {CiMenuKebab} from "react-icons/ci";
 import Zaglushka from "./Zaglushka.jsx";
 
-const Construc = () => {
+const Construc = ({userName}) => {
     const [projects, setProjects] = useState([]);
     const [projectCurrent, setProjectCurrent] = useState();
     const [arr, setArr] = useState([])
@@ -87,6 +87,7 @@ const Construc = () => {
                                  nameFile={projectCurrent}
                                  arr={arr}
                                  setArr={setArr}
+                                 userName={userName}
                     />
                     :
                     <Zaglushka

@@ -37,7 +37,7 @@ function App() {
                                 localStorage.getItem('projects')
                                     ?
                                     (
-                                        <Construc userFiles={userFiles}/>
+                                        <Construc userFiles={userFiles} userName={username}/>
                                     )
                                     :
                                     (<Navigate to="/main" replace/>)

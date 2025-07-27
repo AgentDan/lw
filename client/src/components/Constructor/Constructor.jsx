@@ -5,8 +5,14 @@ import {Canvas} from "@react-three/fiber";
 import {useGLTF} from "@react-three/drei";
 import {v1} from "uuid";
 
-const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => {
-    const {nodes, materials} = useGLTF(`http://localhost:5173/uploads/${nameFile}`);
+const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr, userName}) => {
+
+    const baseUrl = import.meta.env.VITE_BASE_URL
+    const modelPath = `${baseUrl}/uploads/Agent/${nameFile}`;
+
+    console.log("Model path :", modelPath)
+
+    const {nodes, materials} = useGLTF(modelPath);
 
     useEffect(() => {
         if (!nodes) return;
