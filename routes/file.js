@@ -1,13 +1,32 @@
 const {Router} = require('express')
 const router = Router()
 const File = require("../models/File")
+const User = require('../models/User')
 const multer = require('multer')
 const fs = require('fs')
 const path = require('path')
 
 const storageConfig = multer.diskStorage({
-    destination: (req, file, callback) => {
-        callback(null, "./client/public/uploads/");
+    destination: async (req, file, callback) => {
+        try {
+            const userID = req.query.userID
+            const user = await User.findById(userID)
+            console.log("User :", user.username)
+            const userDir = path.join(__dirname, '../uploads/', user.username)
+
+            if (!fs.existsSync(userDir)) {
+                fs.mkdirSync(userDir, { recursive: true });
+            }
+
+            callback(null, userDir);
+
+        }catch (err) {
+            console.log("ERROR to destination multer:", err)
+            callback(err, null)
+        }
+
+        const uploadPath = path.join(__dirname, '../uploads/');
+        callback(null, uploadPath);
     },
     filename: (req, file, callback) => {
         callback(null, file.originalname)
@@ -27,8 +46,8 @@ router.post("/addfile", upload.fields([{name: "file"}, {name: "planFile", maxCou
             return res.status(400).json({message: "Файл проекта обязателен"});
         }
 
-        const existingFileName = await File.findOne({file: fileName})
-        const existingFilePlan = await File.findOne({file: filePlane})
+        const existingFileName = await File.findOne({file: fileName, owner: userId})
+        const existingFilePlan = await File.findOne({file: filePlane, owner: userId})
 
         if (existingFileName) {
             return res.status(404).json({message: 'Фаил с таким именем уже существует!'})
@@ -70,13 +89,9 @@ router.get('/userfiles/:id', async (req, res)=>{
 router.delete('/delete/:id', async (req, res) => {
     try {
         const id = req.params.id
-        const delfile = await File.findById(id)
+        const file = await File.findById(id).populate('owner', 'username');
 
-        if (!delfile) {
-            return res.status(200).json({message: "File not found!"})
-        }
-
-        const filePath = path.join(__dirname, `../client/public/uploads/${delfile.file}`);
+        const filePath = path.join(__dirname, `../uploads/${file.owner.username}`, file.file);
         if (fs.existsSync(filePath)) {
             fs.unlinkSync(filePath);
         }

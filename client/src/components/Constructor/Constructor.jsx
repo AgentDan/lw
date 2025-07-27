@@ -6,7 +6,7 @@ import {useGLTF} from "@react-three/drei";
 import {v1} from "uuid";
 
 const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => {
-    const {nodes, materials} = useGLTF(`./uploads/${nameFile}`);
+    const {nodes, materials} = useGLTF(`http://localhost:5173/uploads/${nameFile}`);
 
     useEffect(() => {
         if (!nodes) return;

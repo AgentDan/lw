@@ -37,6 +37,15 @@ router.post('/registration',
 
             await user.save()
 
+            const dirPath = path.join(__dirname, '../uploads/', username)
+
+            if (!fs.existsSync(dirPath)) {
+                fs.mkdirSync(dirPath, { recursive: true });
+                console.log('Папка создана:', dirPath);
+            } else {
+                console.log('Папка уже существует');
+            }
+
             res.status(201).json({message: 'Пользователь создан'})
 
         } catch (error) {
@@ -58,12 +67,19 @@ router.delete('/delete/:id', async (req, res) => {
         const {id} = req.params
 
         const files = await File.find({owner: id})
+        const user = await User.findById({_id: id})
         if (files.length > 0) {
             return res.status(501).json({message: "Удалите связанные файлы"})
         }
 
         await File.deleteMany({owner: id})
         await User.deleteOne({_id: id})
+        const dirPath = path.join(__dirname, '../uploads/', user.username)
+
+        if (fs.existsSync(dirPath)) {
+            fs.rmSync(dirPath, { recursive: true, force: true })
+        }
+
         res.status(200).json({message: "user Deleted"})
 
     } catch (error) {
