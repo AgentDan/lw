@@ -1,16 +1,14 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import Buttons from "./Buttons/Buttons.jsx";
 import Experience from "./Experience/Experience.jsx";
 import {Canvas} from "@react-three/fiber";
 import {useGLTF} from "@react-three/drei";
 import {v1} from "uuid";
 
-const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr, userName}) => {
-
+const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => {
+    const user = JSON.parse(localStorage.getItem("userData"))
     const baseUrl = import.meta.env.VITE_BASE_URL
-    const modelPath = `${baseUrl}/uploads/Agent/${nameFile}`;
-
-    console.log("Model path :", modelPath)
+    const modelPath = `${baseUrl}/uploads/${user.username}/${nameFile}`;
 
     const {nodes, materials} = useGLTF(modelPath);
 

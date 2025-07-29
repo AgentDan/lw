@@ -25,8 +25,6 @@ const storageConfig = multer.diskStorage({
             callback(err, null)
         }
 
-        const uploadPath = path.join(__dirname, '../uploads/');
-        callback(null, uploadPath);
     },
     filename: (req, file, callback) => {
         callback(null, file.originalname)
