@@ -10,7 +10,7 @@ const Overlay = () => {
                     {/* Центрированный заголовок поверх видео */}
                     <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                         <h2 className="text-[10vw] text-white font-extrabold text-center">
-                            Vincenzo 39 WA
+                            Vicenzo BOATS
                         </h2>
                     </div>
 
@@ -120,7 +120,7 @@ const Overlay = () => {
                     {/* Центрированный заголовок поверх видео */}
                     <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
                         <h2 className="text-[10vw] text-white font-extrabold text-center">
-                            Vincenzo 39 WA
+                            Vicenzo 39 WA
                         </h2>
                     </div>
 

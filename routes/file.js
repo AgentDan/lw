@@ -11,7 +11,6 @@ const storageConfig = multer.diskStorage({
         try {
             const userID = req.query.userID
             const user = await User.findById(userID)
-            console.log("User :", user.username)
             const userDir = path.join(__dirname, '../uploads/', user.username)
 
             if (!fs.existsSync(userDir)) {
