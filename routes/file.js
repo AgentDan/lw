@@ -35,7 +35,6 @@ const upload = multer({storage: storageConfig});
 router.post("/addfile", upload.fields([{name: "file"}, {name: "planFile", maxCount: 1}]), async (req, res) => {
     try {
         const fileName = req.files['file'] ? req.files['file'][0].originalname : null;
-
         const filePlane = req.files['planFile'] ? req.files['planFile'][0].originalname : null;
         const userId = req.body.userId
 
@@ -52,7 +51,8 @@ router.post("/addfile", upload.fields([{name: "file"}, {name: "planFile", maxCou
 
         const newFile = new File({
             owner: userId,
-            file: fileName
+            file: fileName,
+            filePlan: filePlane
         })
 
         await newFile.save();

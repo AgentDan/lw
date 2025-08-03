@@ -56,8 +56,8 @@ function Files() {
 
         const formData = new FormData();
         formData.append("file", file);
+        formData.append("planFile", planFile);
         formData.append("userId", selectedUser);
-        console.log(selectedUser)
 
         try {
             await axios.post(`/api/file/addfile?userID=${selectedUser}`, formData, {

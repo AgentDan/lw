@@ -14,6 +14,8 @@ const Construc = () => {
     const [fileName, setFileName] = useState()
     const avatarRef = useRef()
     const projectsRef = useRef()
+    const user = JSON.parse(localStorage.getItem("userData"))
+    const baseUrl = import.meta.env.VITE_BASE_URL
 
     useEffect(() => {
         const savedProjects = localStorage.getItem("projects");
@@ -46,7 +48,8 @@ const Construc = () => {
         const onClickFile = async () => {
             if (!projectCurrent) return;
 
-            const filePath = `/documents/${projectCurrent.replace(/\.[^/.]+$/, "")}.pdf`;
+            const filePath = `${baseUrl}/uploads/${user.username}/${projectCurrent.replace(/\.[^/.]+$/, "")}.pdf`;
+            console.log("filePath: ", filePath);
 
             try {
                 const response = await fetch(filePath, {method: "HEAD"});
@@ -118,7 +121,7 @@ const Construc = () => {
                 className={`${fileName ? "text-red-600 border-indigo-400 hover:bg-gray-400 cursor-pointer" : "text-gray-300 border-gray-400"} text-center content-center right-20 top-1 absolute border-4 rounded-2xl w-8 h-8 `}
                 onClick={() => {
                     if (fileName && projectCurrent) {
-                        const filePath = `/documents/${projectCurrent.replace(/\.[^/.]+$/, "")}.pdf`;
+                        const filePath = `${baseUrl}/uploads/${user.username}/${projectCurrent.replace(/\.[^/.]+$/, "")}.pdf`;
                         window.open(filePath, "_blank");
                     }
                 }}
