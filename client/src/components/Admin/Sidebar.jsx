@@ -24,7 +24,6 @@ const Sidebar = () => {
     return (
         <div className="w-16 md:w-56 fixed left-0 top-0 z-10 h-screen border-r pt-8 px-4 bg-white">
 
-            {/*Logo*/}
             <div className="mb-8">
                 <img src="/img/logoOne.png" alt="logo" className=" w-28 hidden md:flex"/>
                 <img src="/img/logoOne.png" alt="logo" className="w-8 flex md:hidden"/>

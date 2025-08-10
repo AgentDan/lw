@@ -23,6 +23,11 @@ const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => 
                 fullName: item.name,
                 check: item.name[1] === "0",
                 group: Number(isNaN(Number(item.name.slice(0,1))) === false ? item.name.slice(0,1) : NaN),
+                description: item.userData?.i ?? null,
+                x: item.userData?.x ?? 0.5,
+                y: item.userData?.y ?? 0,
+                z: item.userData?.z ?? 0,
+                clickDescription: false,
             }
             arrModel.push(a)
         })
@@ -34,6 +39,7 @@ const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => 
             <Canvas style={{background: "#AAAAAA"}} camera={{position: [0, 2, 5], fov: 35}}>
                 <Experience
                     arr={arr}
+                    setArr={setArr}
                     materials={materials}
                     nodes={nodes}
                 />

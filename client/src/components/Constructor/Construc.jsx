@@ -49,7 +49,6 @@ const Construc = () => {
             if (!projectCurrent) return;
 
             const filePath = `${baseUrl}/uploads/${user.username}/${projectCurrent.replace(/\.[^/.]+$/, "")}.pdf`;
-            console.log("filePath: ", filePath);
 
             try {
                 const response = await fetch(filePath, {method: "HEAD"});

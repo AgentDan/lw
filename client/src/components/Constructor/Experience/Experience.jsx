@@ -4,7 +4,7 @@ import { useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { Cube } from "../Cube.jsx";
 
-const Experience = ({ arr, materials, nodes }) => {
+const Experience = ({ arr, setArr, materials, nodes }) => {
     const { camera } = useThree(); // Доступ к камере
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const Experience = ({ arr, materials, nodes }) => {
     return (
         <>
             <Stage intensity={0.2} environment="city" shadows={false}>
-                <Cube arr={arr} materials={materials} nodes={nodes} />
+                <Cube arr={arr} setArr={setArr} materials={materials} nodes={nodes} />
             </Stage>
             <OrbitControls makeDefault minPolarAngle={0} maxPolarAngle={Math.PI / 2} />
         </>
