@@ -26,7 +26,7 @@ export function Cube({arr, setArr, materials, nodes}) {
         <>
             {arr.map((item) => {
                 const shouldRender = (nodes[item.fullName] && nodes[item.fullName].geometry && item.check) || item.name === "default";
-                console.log(item.name, "  clickDescription : ", item.clickDescription);
+                console.log(item.name, "  description : ", item.description);
 
                 if (shouldRender) {
                     return (
