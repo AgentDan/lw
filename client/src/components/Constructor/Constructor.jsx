@@ -23,7 +23,7 @@ const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => 
                 fullName: item.name,
                 check: item.name[1] === "0",
                 group: Number(isNaN(Number(item.name.slice(0,1))) === false ? item.name.slice(0,1) : NaN),
-                description: item.userData?.i ?? null,
+                description: item.userData?.i,
                 x: item.userData?.x ?? 0.5,
                 y: item.userData?.y ?? 0,
                 z: item.userData?.z ?? 0,
