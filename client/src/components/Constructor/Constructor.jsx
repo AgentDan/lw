@@ -27,6 +27,13 @@ const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => 
                 x: item.userData?.x ?? 0.5,
                 y: item.userData?.y ?? 0,
                 z: item.userData?.z ?? 0,
+                minDist: item.userData?.DISTmin ?? 0.1,
+                maxDist: item.userData?.DISTmax ?? 100,
+                minPolarAngle: item.userData?.minPolarAngle ?? 70,
+                maxPolarAngle: item.userData?.maxPolarAngle ?? 90,
+                minAzimuthAngle: item.userData?.minAzimuthAngle ?? 90,
+                maxAzimuthAngle: item.userData?.maxAzimuthAngle ?? 170,
+                pan: item.userData?.pan ?? false,
                 clickDescription: false,
             }
             arrModel.push(a)
@@ -36,14 +43,14 @@ const Constructor = ({openelements, setOpenelements, nameFile, arr, setArr}) => 
 
     return (
         <div className="h-screen bg-amber-300">
-            <Canvas style={{background: "#AAAAAA"}} camera={{position: [0, 2, 5], fov: 35}}>
-                <Experience
-                    arr={arr}
-                    setArr={setArr}
-                    materials={materials}
-                    nodes={nodes}
-                />
+            <Canvas shadows camera={{ fov: 50, position: [0, 0, 5] }}>
+                <ambientLight intensity={0.4} />
+                <directionalLight position={[5, 5, 5]} intensity={0.8} />
+                <pointLight position={[-5, -5, 5]} intensity={0.5} />
+
+                <Experience arr={arr} setArr={setArr} materials={materials} nodes={nodes} />
             </Canvas>
+
             <Buttons
                 arr={arr}
                 setArr={setArr}

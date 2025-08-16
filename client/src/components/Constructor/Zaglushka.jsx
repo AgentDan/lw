@@ -14,7 +14,8 @@ const Zaglushka = ({openelements, setOpenelements, arr, setArr}) => {
             <Canvas style={{background: "#AAAAAA"}}
                     camera={{position: [0, 2, 5], fov: 35}}
             >
-                <Float speed={2} rotationIntensity={5} floatIntensity={2}>
+                <Float speed={3} floatIntensity={3}>
+                {/*<Float speed={2} rotationIntensity={5} floatIntensity={2}>*/}
                     <Stage intensity={0.2} environment="city" shadows={false}>
                         <mesh
                             geometry={nodes.bebrik.geometry}

@@ -6,16 +6,13 @@ export function Cube({arr, setArr, materials, nodes}) {
     const onClickDescription = (name) => {
         const baseName = name.replace(/[0-9_]/g, "");
         setArr(prev => {
-            // Вычисляем новое состояние: если хотя бы один из группы сейчас true — выключаем, иначе включаем
             const groupHasActive = prev.some(item => item.name.includes(baseName) && item.clickDescription);
             const newState = !groupHasActive;
 
             return prev.map(item => {
                 if (item.name.includes(baseName)) {
-                    // для группы переключаем на newState
                     return {...item, clickDescription: newState};
                 } else {
-                    // для остальных сбрасываем в false
                     return {...item, clickDescription: false};
                 }
             });
@@ -26,7 +23,6 @@ export function Cube({arr, setArr, materials, nodes}) {
         <>
             {arr.map((item) => {
                 const shouldRender = (nodes[item.fullName] && nodes[item.fullName].geometry && item.check) || item.name === "default";
-                console.log(item.name, "  description : ", item.description);
 
                 if (shouldRender) {
                     return (
